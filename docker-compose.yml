@@ -1,0 +1,57 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: checkout_store_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: checkout_store
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: checkout_store_backend
+    ports:
+      - '3001:3001'
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: checkout_store
+      PAYMENT_GATEWAY_URL: https://api-sandbox.co.uat.wompi.dev/v1
+      PAYMENT_PUBLIC_KEY: pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7
+      PAYMENT_PRIVATE_KEY: prv_stagtest_5i0ZGIGiFcDQifYsXxvsny7Y37tKqFWg
+      PAYMENT_EVENTS_KEY: stagtest_events_2PDUmhMywUkvb1LvxYnayFbmofT7w39N
+      PAYMENT_INTEGRITY_KEY: stagtest_integrity_nAIBuqayW70XpUqJS4qf4STYiISd89Fp
+      FRONTEND_URL: http://localhost:5173
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: checkout_store_frontend
+    ports:
+      - '5173:80'
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
