@@ -14,10 +14,8 @@ import { ProcessPaymentUseCase } from '../../../application/use-cases/process-pa
 import { CreateTransactionDto } from '../dto/create-transaction.dto';
 import { ProcessPaymentDto } from '../dto/process-payment.dto';
 import { Inject } from '@nestjs/common';
-import {
-  TRANSACTION_REPOSITORY,
-  TransactionRepositoryPort,
-} from '../../../domain/ports/repositories/transaction.repository.port';
+import { TRANSACTION_REPOSITORY } from '../../../domain/ports/repositories/transaction.repository.port';
+import type { TransactionRepositoryPort } from '../../../domain/ports/repositories/transaction.repository.port';
 
 @Controller('transactions')
 @UsePipes(new ValidationPipe({ whitelist: true, transform: true }))

@@ -69,10 +69,10 @@ export class TransactionOrmEntity {
   })
   status: TransactionStatus;
 
-  @Column({ name: 'gateway_transaction_id', length: 200, nullable: true })
+  @Column({ name: 'gateway_transaction_id', type: 'varchar', length: 200, nullable: true })
   gatewayTransactionId: string | null;
 
-  @Column({ name: 'gateway_status', length: 100, nullable: true })
+  @Column({ name: 'gateway_status', type: 'varchar', length: 100, nullable: true })
   gatewayStatus: string | null;
 
   @Column({ name: 'gateway_response', type: 'jsonb', nullable: true })

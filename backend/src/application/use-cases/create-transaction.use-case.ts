@@ -1,15 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 import { Transaction, TransactionStatus } from '../../domain/entities/transaction.entity';
-import {
-  PRODUCT_REPOSITORY,
-  ProductRepositoryPort,
-} from '../../domain/ports/repositories/product.repository.port';
-import {
-  TRANSACTION_REPOSITORY,
-  TransactionRepositoryPort,
-} from '../../domain/ports/repositories/transaction.repository.port';
-import { Result, ok, err, flatMapResult } from '../../domain/value-objects/result';
+import { PRODUCT_REPOSITORY } from '../../domain/ports/repositories/product.repository.port';
+import type { ProductRepositoryPort } from '../../domain/ports/repositories/product.repository.port';
+import { TRANSACTION_REPOSITORY } from '../../domain/ports/repositories/transaction.repository.port';
+import type { TransactionRepositoryPort } from '../../domain/ports/repositories/transaction.repository.port';
+import { Result, ok, err } from '../../domain/value-objects/result';
 
 export const BASE_FEE_IN_CENTS = 300000; // 3,000 COP
 export const DELIVERY_FEE_IN_CENTS = 500000; // 5,000 COP

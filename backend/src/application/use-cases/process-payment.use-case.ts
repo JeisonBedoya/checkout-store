@@ -1,17 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Transaction } from '../../domain/entities/transaction.entity';
-import {
-  TRANSACTION_REPOSITORY,
-  TransactionRepositoryPort,
-} from '../../domain/ports/repositories/transaction.repository.port';
-import {
-  PRODUCT_REPOSITORY,
-  ProductRepositoryPort,
-} from '../../domain/ports/repositories/product.repository.port';
-import {
-  PAYMENT_GATEWAY,
-  PaymentGatewayPort,
-} from '../../domain/ports/services/payment-gateway.port';
+import { TRANSACTION_REPOSITORY } from '../../domain/ports/repositories/transaction.repository.port';
+import type { TransactionRepositoryPort } from '../../domain/ports/repositories/transaction.repository.port';
+import { PRODUCT_REPOSITORY } from '../../domain/ports/repositories/product.repository.port';
+import type { ProductRepositoryPort } from '../../domain/ports/repositories/product.repository.port';
+import { PAYMENT_GATEWAY } from '../../domain/ports/services/payment-gateway.port';
+import type { PaymentGatewayPort } from '../../domain/ports/services/payment-gateway.port';
 import { Result, ok, err } from '../../domain/value-objects/result';
 
 export interface ProcessPaymentInput {

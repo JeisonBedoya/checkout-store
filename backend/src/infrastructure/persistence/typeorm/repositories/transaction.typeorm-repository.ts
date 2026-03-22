@@ -14,7 +14,7 @@ export class TransactionTypeOrmRepository implements TransactionRepositoryPort {
 
   async create(data: Omit<Transaction, 'id' | 'createdAt' | 'updatedAt'>): Promise<Transaction> {
     const entity = this.repo.create(data as any);
-    const saved = await this.repo.save(entity);
+    const saved = await this.repo.save(entity) as unknown as TransactionOrmEntity;
     return this.toDomain(saved);
   }
 

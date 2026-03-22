@@ -1,9 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Product } from '../../domain/entities/product.entity';
-import {
-  PRODUCT_REPOSITORY,
-  ProductRepositoryPort,
-} from '../../domain/ports/repositories/product.repository.port';
+import { PRODUCT_REPOSITORY } from '../../domain/ports/repositories/product.repository.port';
+import type { ProductRepositoryPort } from '../../domain/ports/repositories/product.repository.port';
 import { Result, ok, err } from '../../domain/value-objects/result';
 
 @Injectable()
