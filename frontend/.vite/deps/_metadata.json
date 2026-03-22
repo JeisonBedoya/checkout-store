@@ -1,0 +1,50 @@
+{
+  "hash": "a721c222",
+  "configHash": "7aa3898e",
+  "lockfileHash": "0170fd51",
+  "browserHash": "8f923ce7",
+  "optimized": {
+    "@reduxjs/toolkit": {
+      "src": "../../node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs",
+      "file": "@reduxjs_toolkit.js",
+      "fileHash": "a7f29c95",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "f807f63d",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "7c36ddd8",
+      "needsInterop": true
+    },
+    "react-redux": {
+      "src": "../../node_modules/react-redux/dist/react-redux.mjs",
+      "file": "react-redux.js",
+      "fileHash": "f5d91c34",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "5c514656",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "00891460",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-BoAXSpZd": {
+      "file": "chunk-BoAXSpZd.js",
+      "isDynamicEntry": false
+    }
+  }
+}
