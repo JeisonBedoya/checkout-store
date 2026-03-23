@@ -37,6 +37,7 @@ import { PAYMENT_GATEWAY } from './domain/ports/services/payment-gateway.port';
         entities: [ProductOrmEntity, TransactionOrmEntity],
         synchronize: config.get('NODE_ENV', 'development') !== 'production',
         logging: config.get('NODE_ENV') === 'development',
+        ssl: config.get('DB_SSL') === 'true' ? { rejectUnauthorized: false } : false,
       }),
     }),
     TypeOrmModule.forFeature([ProductOrmEntity, TransactionOrmEntity]),
