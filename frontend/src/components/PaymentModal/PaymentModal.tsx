@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store';
 import {
   closeCheckout,
   setCardInfo,
   setDeliveryInfo,
-  goToSummary,
   createTransaction,
 } from '../../store/slices/checkoutSlice';
 import { CardInfo, DeliveryInfo, CardBrand } from '../../types';
